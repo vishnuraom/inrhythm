@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LINQqueries.Models.empc>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deptno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deptno)
+        </td>
+
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Order by Salary", "Order") |
+    @Html.ActionLink("Group by deptno", "Group") |
+</p>

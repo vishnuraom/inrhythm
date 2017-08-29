@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="inrdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="empc">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="int" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="20" />
+          <Property Name="sal" Type="money" />
+          <Property Name="comm" Type="money" />
+          <Property Name="deptno" Type="int" />
+        </EntityType>
+        <EntityContainer Name="inrdbModelStoreContainer">
+          <EntitySet Name="empc" EntityType="Self.empc" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inrdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="empc">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="Int32" Nullable="false" />
+          <Property Name="ename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="comm" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="deptno" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="inrdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="empc" EntityType="Self.empc" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inrdbModelStoreContainer" CdmEntityContainer="inrdbEntities">
+          <EntitySetMapping Name="empc">
+            <EntityTypeMapping TypeName="inrdbModel.empc">
+              <MappingFragment StoreEntitySet="empc">
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="sal" ColumnName="sal" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="deptno" ColumnName="deptno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
